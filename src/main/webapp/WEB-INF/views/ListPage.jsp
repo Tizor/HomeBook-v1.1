@@ -9,7 +9,7 @@
 </head>
 <body>
 <div align="center">
-    <h1>Contact List</h1>
+    <h1>Home book</h1>
 
     <h3><a href="CreateUser">New Contact</a></h3>
 
@@ -18,6 +18,7 @@
         <th>Name</th>
         <th>City</th>
         <th>Phone</th>
+        <th>Action</th>
 
         <c:forEach var="user" items="${ListOfUsers}" varStatus="status">
             <tr>
