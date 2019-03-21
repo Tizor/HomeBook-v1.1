@@ -7,14 +7,14 @@ import java.util.List;
 
 public interface DAO {
 
-    List<User> AllUsers();
+    List<User> allUsers();
 
-    public User GetId(int UserId);
+    public User getId(int UserId);
 
-    void AddUser(User user);
+    void addUser(User user);
 
-    void UpdateUser(User user);
+    void updateUser(User user);
 
 
-    void DeleteUser (int UserId);
+    void deleteUser (int UserId);
 }
