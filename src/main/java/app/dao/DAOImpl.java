@@ -17,7 +17,7 @@ public class DAOImpl implements DAO {
 
 
     @Override
-    public List<User> AllUsers() {
+    public List<User> allUsers() {
         String sql = " SELECT * FROM contacts";
 
         return JT.query(sql, new UserMapper());
@@ -25,28 +25,28 @@ public class DAOImpl implements DAO {
 
 
     @Override
-    public void AddUser(User user) {
+    public void addUser(User user) {
         String sql = "INSERT INTO contacts (name, city, phone) VALUES (?,?,?)";
         JT.update(sql, user.getName(), user.getCity(), user.getPhone());
 
     }
 
    @Override
-    public User GetId(int id) {
+    public User getId(int id) {
         String sql = "SELECT * FROM contacts WHERE id = ?";
         return JT.queryForObject(sql, new UserMapper(), id);
 
     }
 
     @Override
-    public void UpdateUser(User user) {
+    public void updateUser(User user) {
         String sql = "UPDATE contacts SET name=?, city=?, phone=? WHERE id=?";
         JT.update(sql, user.getName(), user.getCity(), user.getPhone(), user.getId());
 
     }
 
     @Override
-    public void DeleteUser(int id) {
+    public void deleteUser(int id) {
         String sql = "DELETE FROM contacts WHERE id=?";
         JT.update(sql, id);
 
