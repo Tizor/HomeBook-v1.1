@@ -18,14 +18,14 @@ public class UserController {
     private DAO dao;
 
     @GetMapping ("/ListPage")
-    public String ListPage(Model model){
+    public String listPage(Model model){
         model.addAttribute("ListOfUsers", dao.AllUsers());
         return "ListPage";
         }
 
 
         @GetMapping("/CreateUser")
-    public ModelAndView AddUser(ModelAndView model) {
+    public ModelAndView addUser(ModelAndView model) {
         User NewUser = new User();
       model.addObject("user",NewUser);
       model.setViewName("MakeUser");
@@ -34,20 +34,20 @@ public class UserController {
 
 
     @PostMapping("/SaveUser")
-    public ModelAndView SaveUser(@ModelAttribute User user){
+    public ModelAndView saveUser(@ModelAttribute User user){
         dao.AddUser(user);
         return new ModelAndView("redirect:/ListPage");
     }
 
     @GetMapping("/DeleteUser")
-    public String DeleteUser(int id){
+    public String deleteUser(int id){
         dao.DeleteUser(id);
         return "redirect:/ListPage";
     }
 
 
   @GetMapping("/UpdateUser")
-  public ModelAndView EditUser(@ModelAttribute ModelAndView model, int id) {
+  public ModelAndView editUser(@ModelAttribute ModelAndView model, int id) {
       User user = dao.GetId(id);
       model.setViewName("UpdateUser");
       model.addObject("user", user);
@@ -55,7 +55,7 @@ public class UserController {
   }
 
       @PostMapping("/SaveUpdateUser")
-      public ModelAndView SaveUpdateUser(@ModelAttribute User user){
+      public ModelAndView saveUpdateUser(@ModelAttribute User user){
           dao.UpdateUser(user);
           return new ModelAndView("redirect:/ListPage");
       }
